@@ -1,0 +1,30 @@
+@(message: String)(name: String)(input: Form[PublicUser])
+
+@import helper._
+
+@main("Welcome to Play") {
+	
+	@message
+    <h4>Registration: </h4>
+
+  	  @helper.form(routes.Application.recognize()){
+    	<p> Name: </p>
+    	<input type="text" value="" id="username" name="username" /> <br>
+    	<p> Email: </p>
+    	<input type="text" value="" id="email" name="email" /> <br>
+    	<p> Set Password: </p>
+    	<input type="text" value="" id="password" name="password" /> <br>
+    	<input type="submit" value="Save" />
+      
+	} 
+	
+	
+@*	 @helper.form(routes.Application.addCustomer()){
+		@helper.inputText(inputCustomer("karina"))
+		<input type="submit" value="Dodaj nesto" /> 
+		
+	}  			*@
+	
+
+}
+
