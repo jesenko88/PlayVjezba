@@ -2,10 +2,10 @@
 
 @import helper._
 
-@main("Login"){
+@main("Fail") {
 	
-	<h2>@message</h2>
-    <h4>Login: </h4>
+	 <h2>@message</h2>
+	 <h4>Invalid username od password! </h4>
 
   	  @helper.form(routes.Application.login()){
     	<p> Enter Username: </p>
@@ -16,4 +16,6 @@
     	<input type="submit" value="Login" />
       }
 
+		
 }
+

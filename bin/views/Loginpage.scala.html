@@ -1,8 +1,10 @@
+@(message: String)
+
 @import helper._
 
 @main("Login"){
 	
-	
+	<h2>@message</h2>
     <h4>Login: </h4>
 
   	  @helper.form(routes.Application.login()){
@@ -13,11 +15,5 @@
     	<p></p>
     	<input type="submit" value="Login" />
       }
-	
-	
-
-		
-	  			
-	
 
 }

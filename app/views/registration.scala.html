@@ -1,8 +1,9 @@
+@(message: String)
 @import helper._
 
 @main("Registration"){
 	
-	
+	<h2>@message</h2>
     <h4>Registration: </h4>
 
   	  @helper.form(routes.Application.register()){

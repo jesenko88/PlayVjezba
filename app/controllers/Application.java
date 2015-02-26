@@ -9,6 +9,7 @@ import views.html.*;
 public class Application extends Controller {
 	
 	static String message = "Welcome ";
+	static String bitName = "bitCoupon";
 
 	//static Form<PublicUser> input = new Form<PublicUser>(PublicUser.class);
 	
@@ -27,7 +28,7 @@ public class Application extends Controller {
     
     public static Result registration(){ 	
     	
-    	return ok(registration.render());
+    	return ok(registration.render(bitName));
     }
     
     public static Result register(){
@@ -44,7 +45,7 @@ public class Application extends Controller {
     
   public static Result loginpage(){
   	  		
-    		return ok(Loginpage.render());   	
+    		return ok(Loginpage.render(bitName));   	
     }
   
   public static Result login(){
@@ -55,9 +56,10 @@ public class Application extends Controller {
 		  return ok(index.render(message, username )); 
 	  }
 	  
-	  return redirect("/");   //ako ne prodje username 
+	  return ok(loginFailed.render(bitName));   //ako ne prodje username 
 	  
   }
+
         
   
 
