@@ -45,7 +45,7 @@ public class Application extends Controller {
     
   public static Result loginpage(){
   	  		
-    		return ok(Loginpage.render(bitName));   	
+    		return ok(Loginpage.render(bitName,"Login"));   	
     }
   
   public static Result login(){
@@ -56,7 +56,7 @@ public class Application extends Controller {
 		  return ok(index.render(message, username )); 
 	  }
 	  
-	  return ok(loginFailed.render(bitName));   //ako ne prodje username 
+	  return ok(Loginpage.render(bitName,"Invalid username or password")); 	//(loginFailed.render(bitName));   //ako ne prodje username 
 	  
   }
 

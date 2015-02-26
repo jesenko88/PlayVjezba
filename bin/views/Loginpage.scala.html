@@ -1,11 +1,11 @@
-@(message: String)
+@(message: String)(info: String)
 
 @import helper._
 
 @main("Login"){
 	
 	<h2>@message</h2>
-    <h4>Login: </h4>
+    <h4>@info: </h4>
 
   	  @helper.form(routes.Application.login()){
     	<p> Enter Username: </p>
