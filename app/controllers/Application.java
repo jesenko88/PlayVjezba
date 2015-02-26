@@ -50,17 +50,15 @@ public class Application extends Controller {
   public static Result login(){
 	  String username = login.bindFromRequest().get().username;
 	  String password = login.bindFromRequest().get().password;  
+	  User u = new User(username, null, password);
+	  if ( u.verify(u.username) == true ){
+		  return ok(index.render(message, username )); 
+	  }
 	  
-	  
-	  return ok(index.render(message, username )); 
+	  return redirect("/");   //ako ne prodje username 
 	  
   }
-    
-    
-
-    
-
-    
+        
   
 
 }

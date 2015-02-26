@@ -46,8 +46,15 @@ public class User extends Model {
 		return find.where().eq("username", username).findList();
 	}
 	
-	public static boolean hasName(String username){
-	 return find.where().contains("username", username) != null;
+	public static boolean verify(String username){
+		List<User> us = find.where().eq("username", username).findList();
+		if ( us.isEmpty() ){
+			return false;
+		} else {
+			return true;
+		}
+	
+			 //find.where().contains("username", username) != null;
 	
 	}
 	
