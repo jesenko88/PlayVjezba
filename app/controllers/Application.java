@@ -7,53 +7,60 @@ import play.mvc.*;
 import views.html.*;
 
 public class Application extends Controller {
-	static String message = "Welcome to bitCoupon";
 	
+	static String message = "Welcome ";
+
+	//static Form<PublicUser> input = new Form<PublicUser>(PublicUser.class);
 	
-	static Form<PublicUser> input = new Form<PublicUser>(PublicUser.class);
-	
-	static Form<Customer> newCustomer = new Form<Customer>(Customer.class);
+	static Form<User> newUser = new Form<User>(User.class);
+	static Form<Login> login = new Form<Login>(Login.class);
 
     public static Result index() {
     	String name = session("name");
     	if (name == null){
     		name = "Public user";	
-    		return ok(index.render(message, name, input));
+    		return ok(index.render(message, name )); 
     	}else{
     		return redirect("/");
     	}
     }
     
-    public static Result recognize(){
-    	String username = newCustomer.bindFromRequest().get().username;
-    	String mail = newCustomer.bindFromRequest().get().email;
-    	String password = newCustomer.bindFromRequest().get().password;
-    	session("name", username);
-//    	return ok(index.render(message, name, input));
-    	Customer.create(username, mail, password);
-    	return redirect("/customers");
-    }
-    
-    public static Result customer(){
-    	String name = session("name");
-    	if (name == null){
-    		return redirect("/");
-    	}
-    	return ok(logged.render(
-    		//	newCustomer
-    			name
-    			));  //Customer.all(name))
+    public static Result registration(){ 	
+    	
+    	return ok(registration.render());
     }
     
     public static Result register(){
-    	String username = newCustomer.bindFromRequest().get().username;
-    	String email = newCustomer.bindFromRequest().get().email;
-    	String password = newCustomer.bindFromRequest().get().password;
+    	String username = newUser.bindFromRequest().get().username;
+    	String mail = newUser.bindFromRequest().get().email;
+    	String password = newUser.bindFromRequest().get().password;    	
     	session("name", username);
-    	Customer.create(username, email, password);
-    	return redirect("/customers");
+    	User.create(username, mail, password);
+    	return ok(index.render(message, username )); 
+    	
     }
+    
+ 
+    
+  public static Result loginpage(){
+  	  		
+    		return ok(Loginpage.render());   	
+    }
+  
+  public static Result login(){
+	  String username = login.bindFromRequest().get().username;
+	  String password = login.bindFromRequest().get().password;  
+	  
+	  
+	  return ok(index.render(message, username )); 
+	  
+  }
+    
+    
 
     
+
+    
+  
 
 }

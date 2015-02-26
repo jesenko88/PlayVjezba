@@ -1,0 +1,23 @@
+@import helper._
+
+@main("Login"){
+	
+	
+    <h4>Login: </h4>
+
+  	  @helper.form(routes.Application.login()){
+    	<p> Enter Username: </p>
+    	<input type="text" value="" id="username" name="username" /> <br>
+    	<p> Enter Password: </p>
+    	<input type="text" value="" id="password" name="password" /> <br>
+    	<p></p>
+    	<input type="submit" value="Login" />
+      }
+	
+	
+
+		
+	  			
+	
+
+}
