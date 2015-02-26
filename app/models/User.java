@@ -46,13 +46,15 @@ public class User extends Model {
 		return find.where().eq("username", username).findList();
 	}
 	
-	public static boolean verify(String username){
+	public static boolean verify(String username, String password){
 		List<User> us = find.where().eq("username", username).findList();
+		List<User> pas = find.where().eq("password", password).findList();
 		if ( us.isEmpty() ){
 			return false;
-		} else {
-			return true;
-		}
+		} else if (pas.isEmpty()){
+			
+			return false;
+		} else return true;
 	
 			 //find.where().contains("username", username) != null;
 	

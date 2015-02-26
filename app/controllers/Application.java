@@ -51,7 +51,7 @@ public class Application extends Controller {
 	  String username = login.bindFromRequest().get().username;
 	  String password = login.bindFromRequest().get().password;  
 	  User u = new User(username, null, password);
-	  if ( u.verify(u.username) == true ){
+	  if ( u.verify(u.username, u.password) == true ){
 		  return ok(index.render(message, username )); 
 	  }
 	  
